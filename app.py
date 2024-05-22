@@ -53,8 +53,8 @@ def auth():
     username = request.form.get('username')
     password = request.form.get('password')
  
-    if (username,) in users:
-        user = users[(username,)]
+    if username in users:
+        user = users[username]
         if password == user.password:
             session['loggedUser'] = user.nickname
             flash(f'{user.nickname} logged in successfully!', 'success')
